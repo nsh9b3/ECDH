@@ -1,18 +1,21 @@
-def point():
+class point:
     def __init__(self, x=0, y=0):
-        this.x = x;
-        this.y = y;
+        self.x = x;
+        self.y = y;
 
     def isEqual(self, p):
-        if this.x == p.x:
-            if this.y == p.y:
-                return true;
+        if self.x == p.x:
+            if self.y == p.y:
+                return True;
         
-        return true
+        return False
 
     def isZero(self):
-        if this.x == 0:
-            if this.y == 0:
-                return true
+        if self.x == 0:
+            if self.y == 0:
+                return True
 
-        return false
+        return False
+
+    def toString(self):
+        return '({}, {})'.format(self.x, self.y)
