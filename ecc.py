@@ -1,7 +1,7 @@
-from point import point
+from point import Point
 from ff import inv
 
-class ecc:
+class Ecc:
     # y^2 = x^3 + a * x + b
     def __init__(self, a, b, p):
         self.a = a
@@ -11,23 +11,23 @@ class ecc:
         self.order = -1
 
     def add(self, p1, p2):
-        r = point(0,0)
+        r = Point(0,0)
         if p1.isZero():
             r = p2
         elif p2.isZero():
             r = p1
         elif p1.x == p2.x and p1.y == 0 and p1.isEqual(p2):            
-            r = point(0,0)
+            r = Point(0,0)
         elif p1.x == p2.x and p1.y != 0 and not p1.isEqual(p2):
-            r = point(0,0)
+            r = Point(0,0)
         elif p1.x == p2.x and p1.y != 0 and p1.isEqual(p2):
             s = ((3 * p1.x * p1.x + self.a) * inv(2 * p1.y, self.p)) % self.p
-            r = point(0,0)
+            r = Point(0,0)
             r.x = (s * s - 2 * p1.x) % self.p
             r.y = (s * (p1.x - r.x) - p1.y) % self.p
         else:
             s = ((p1.y - p2.y) * inv(p1.x - p2.x, self.p)) % self.p
-            r = point(0,0)
+            r = Point(0,0)
             r.x = (s * s - (p1.x + p2.x)) % self.p
             r.y = (s * (p1.x - r.x) - p1.y) % self.p
 
@@ -56,8 +56,8 @@ class ecc:
             x = i % self.p
             y2 = (x * x * x + self.a * x + self.b) % self.p
             if y2 in squares:
-                self.points.append(point(x, sqrt[squares.index(y2)]))
-                self.points.append(point(x, -sqrt[squares.index(y2)]))
+                self.points.append(Point(x, sqrt[squares.index(y2)]))
+                self.points.append(Point(x, -sqrt[squares.index(y2)]))
 
         return self.points
 
