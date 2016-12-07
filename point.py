@@ -24,7 +24,7 @@ class Point:
     def fromString(self,inputString):
         inputArr = inputString.split()
         if(len(inputArr)!=2):
-            print("Invalid number of arguments in string")
+            print("Invalid number of arguments in string "+ inputString)
             self.x=0
             self.y=0
         else:
