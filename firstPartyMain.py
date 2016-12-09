@@ -18,9 +18,9 @@ def main():
     config.read('firstPartyConfig.cfg')
     p = config.getint('runInfo','fieldMod') # field modulo p
     a = config.getint('runInfo','aVal')
-    b  = config.getint('runInfo','bVal') # curve parameters
-    genX = config.getint('runInfo','GeneratorX')
-    genY = config.getint('runInfo','Generatory')
+    b  = int(config.get('runInfo','bVal'),16) # curve parameters
+    genX = int(config.get('runInfo','GeneratorX'),16)
+    genY = int(config.get('runInfo','Generatory'),16)
     G = Point(genX,genY) # generator point
     curve = Ecc(a, b, p)
     n = curve.getOrder(G) # ord(G)

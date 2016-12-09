@@ -7,7 +7,7 @@ import time
 
 def sendInfo(stringToSend,tcp_ip,tcp_port):
     print("Sending")
-    BUFFER_SIZE = 1024
+    BUFFER_SIZE = 20480
     #open socket to send data
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((tcp_ip, tcp_port))
@@ -19,7 +19,7 @@ def sendInfo(stringToSend,tcp_ip,tcp_port):
     
 def recInfo(point,myIpAddress,myPort):
     print("Recieving")
-    BUFFER_SIZE = 1024
+    BUFFER_SIZE = 20480
     #open socket and set it to listen for communication
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind((myIpAddress, myPort))
