@@ -23,7 +23,7 @@ def main():
     genY = int(config.get('runInfo','Generatory'), 16)
     G = Point(genX,genY) # generator point
     curve = Ecc(a, b, p)
-    n = curve.getOrder(G) # ord(G)
+    #n = curve.getOrder(G) # ord(G)
     mySecret = DhecUser(curve, G,
                         config.getint('runInfo','generatorMult'))
     communicationIp = config.get('runInfo','otherIpAddress')
